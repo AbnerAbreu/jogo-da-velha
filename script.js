@@ -9,12 +9,22 @@ let jogada = 0;
 function escolherJogador () {
     jogador1 = caixaTexto.value;
     jogador2;
-    if(jogador1 == "X"){
+    if(jogador1 == "X" || jogador1 == "x"){
         jogador2 = "O"
+        caixaTexto.value = "";
+        caixaTexto.placeholder = "JOGADOR JÁ ESCOLHIDO";
+        caixaTexto.disabled = true;
     }
-    else {
+    else if(jogador1 == "O" || jogador1 == "o"){
         jogador2 = "X"
+        caixaTexto.value = "";
+        caixaTexto.placeholder = "JOGADOR JÁ ESCOLHIDO";
+        caixaTexto.disabled = true;
     }
+    else{
+        caixaTexto.value = "JOGADOR INVALIDO"
+    }
+    
 }
 
 botao.onclick = escolherJogador;
@@ -23,6 +33,7 @@ function gerarJogada(){
     if(this.innerHTML == ""){
         if(jogada % 2 == 0){
             this.innerHTML = jogador1;
+            this.style.color = "red";
             jogada++;
             verificarFinal();
         }
@@ -42,41 +53,41 @@ for(let quadrado of quadrados){
 }
 
 function verificarFinal(){
-    if(quadrados[0] != "" && quadrados[0].innerHTML == quadrados[1].innerHTML && quadrados[1].innerHTML == quadrados[2].innerHTML){
-        aviso.innerHTML = "Você venceu";
-        quadrados.onclick = null;
-        
-    }
-    else if(quadrados[3] != "" && quadrados[3].innerHTML == quadrados[4].innerHTML && quadrados[5].innerHTML){
-        aviso.innerHTML = "Você venceu";
-        quadrados.onclick = null;
-    }
-    else if(quadrados[6] != "" && quadrados[6].innerHTML == quadrados[7].innerHTML && quadrados[8].innerHTML){
-        aviso.innerHTML = "Você venceu";
-        onclick = null;
-    }
-    else if(quadrados[0] != "" && quadrados[0].innerHTML == quadrados[3].innerHTML && quadrados[6].innerHTML){
-        aviso.innerHTML = "Você venceu";
-        onclick = null;
-    }
-    else if(quadrados[1] != "" && quadrados[1].innerHTML == quadrados[4].innerHTML && quadrados[7].innerHTML){
-        aviso.innerHTML = "Você venceu";
-        onclick = null;
-    }
-    else if(quadrados[2] != "" && quadrados[2].innerHTML == quadrados[5].innerHTML && quadrados[8].innerHTML){
-        aviso.innerHTML = "Você venceu";
-        onclick = null;
-    }
-    else if(quadrados[0] != "" && quadrados[0].innerHTML == quadrados[4].innerHTML && quadrados[8].innerHTML){
-        aviso.innerHTML = "Você venceu";
-        onclick = null;
-    }
-    else if(quadrados[2] != "" && quadrados[2].innerHTML == quadrados[4].innerHTML && quadrados[6].innerHTML){
-        aviso.innerHTML = "Você venceu";
-        onclick = null;
-    }
-    
-    else{
-        console.log("IH!!!!!!!!!!!!!!!! Deu Velha");
+    for(let quadrado of quadrados){
+        if(quadrados[0] != "" && quadrados[0].innerHTML == quadrados[1].innerHTML && quadrados[1].innerHTML == quadrados[2].innerHTML){
+            aviso.innerHTML = "Você venceu";
+            quadrado.onclick = null;
+        }
+        else if(quadrados[3] != "" && quadrados[3].innerHTML == quadrados[4].innerHTML && quadrados[5].innerHTML){
+            aviso.innerHTML = "Você venceu";
+            quadrado.onclick = null;
+        }
+        else if(quadrados[6] != "" && quadrados[6].innerHTML == quadrados[7].innerHTML && quadrados[8].innerHTML){
+            aviso.innerHTML = "Você venceu";
+            quadrado.onclick = null;
+        }
+        else if(quadrados[0] != "" && quadrados[0].innerHTML == quadrados[3].innerHTML && quadrados[6].innerHTML){
+            aviso.innerHTML = "Você venceu";
+            quadrado.onclick = null;
+        }
+        else if(quadrados[1] != "" && quadrados[1].innerHTML == quadrados[4].innerHTML && quadrados[7].innerHTML){
+            aviso.innerHTML = "Você venceu";
+            quadrado.onclick = null;
+        }
+        else if(quadrados[2] != "" && quadrados[2].innerHTML == quadrados[5].innerHTML && quadrados[8].innerHTML){
+            aviso.innerHTML = "Você venceu";
+            quadrado.onclick = null;
+        }
+        else if(quadrados[0] != "" && quadrados[0].innerHTML == quadrados[4].innerHTML && quadrados[8].innerHTML){
+            aviso.innerHTML = "Você venceu";
+            quadrado.onclick = null;
+        }
+        else if(quadrados[2] != "" && quadrados[2].innerHTML == quadrados[4].innerHTML && quadrados[6].innerHTML){
+            aviso.innerHTML = "Você venceu";
+            quadrado.onclick = null;
+        }
+        else{
+            console.log("IH!!!!!!!!!!!!!!!! Deu Velha");
+        }
     }
 }
