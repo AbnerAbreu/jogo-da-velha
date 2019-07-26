@@ -12,7 +12,7 @@ div{
     align-items: center;
     justify-content: center;
 }
-.coluna div{
+.linha div{
     width: 200px;
     height: 200px;
     background-color: grey;
