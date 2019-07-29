@@ -52,43 +52,47 @@ for (let quadrado of quadrados) {
     quadrado.onclick = gerarJogada;
 }
 
+function final(){
+    aviso.innerHTML="Você venceu!";
+    for(let quadrado of quadrados){
+        quadrado.onclick = null;
+    }
+
+}
+
 function verificarFinal() {
     for (let quadrado of quadrados) {
         //primeira linha
         if (quadrado[0].innerHTML !== "" && quadrados[0].innerHTML === quadrados[1].innerHTML && quadrados[1].innerHTML === quadrados[2].innerHTML) {
-            aviso.innerHTML = "Você venceu!";
-            quadrado.onclick = null;
+            final();
         }
         else if (quadrado[3].innerHTML !== "" && quadrados[3].innerHTML === quadrados[4].innerHTML && quadrados[4].innerHTML === quadrados[5].innerHTML) {
-            aviso.innerHTML = "Você venceu!";
-            quadrado.onclick = null;
+            final();
         }
         else if (quadrado[6].innerHTML !== "" && quadrados[6].innerHTML === quadrados[7].innerHTML && quadrados[7].innerHTML === quadrados[8].innerHTML) {
-            aviso.innerHTML = "Você venceu!";
-            quadrado.onclick = null;
+            final();
         }
         else if (quadrado[0].innerHTML !== "" && quadrados[0].innerHTML === quadrados[3].innerHTML && quadrados[3].innerHTML === quadrados[6].innerHTML) {
-            aviso.innerHTML = "Você venceu!";
-            quadrado.onclick = null;
+            final();
         }
 
         else if (quadrado[1].innerHTML !== "" && quadrados[1].innerHTML === quadrados[4].innerHTML && quadrados[4].innerHTML === quadrados[7].innerHTML) {
-            aviso.innerHTML = "Você venceu!";
-            quadrado.onclick = null;
+            final();
         }
         else if (quadrado[2].innerHTML !== "" && quadrados[2].innerHTML === quadrados[5].innerHTML && quadrados[5].innerHTML === quadrados[8].innerHTML) {
-            aviso.innerHTML = "Você venceu!";
-            quadrado.onclick = null;
+            final();
         }
         else if (quadrado[0].innerHTML !== "" && quadrados[0].innerHTML === quadrados[4].innerHTML && quadrados[4].innerHTML === quadrados[8].innerHTML) {
-            aviso.innerHTML = "Você venceu!";
-            quadrado.onclick = null;
+            final();
         }
         else if (quadrado[2].innerHTML !== "" && quadrados[2].innerHTML === quadrados[4].innerHTML && quadrados[4].innerHTML === quadrados[6].innerHTML) {
-            aviso.innerHTML = "Você venceu!";
+            final();
         }
-        else {
+        else if(jogada >= 9) {
             aviso.innerHTML = " Iiiii de velha"
+        }
+        else{
+            return;
         }
     }
 }
