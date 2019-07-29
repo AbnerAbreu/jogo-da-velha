@@ -26,9 +26,11 @@ section{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    border: 10px;
 }
 .quadrado{
     font-size: 60pt;
+
 }
 .boxtext{
     display: flex;
@@ -39,10 +41,13 @@ section{
 }
 button{
   margin-top: 10px;
+  background-color: rgb(85, 5, 5);
+  
 }
 h2{
     margin-top: 20px;
-    color: magenta;
+    color: rgb(23, 252, 2);
 }
+
 
 

@@ -33,7 +33,7 @@ function gerarJogada() {
     if (this.innerHTML == "") {
         if (jogada % 2 == 0) {
             this.innerHTML = jogador1;
-            this.style.color = "red";
+            this.style.color = "rgb(85, 5, 5)";
             jogada++;
             verificarFinal();
         }
