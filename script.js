@@ -6,88 +6,89 @@ let jogador1;
 let jogador2;
 let jogada = 0;
 
-function escolherJogador () {
+function escolherJogador() {
     jogador1 = caixaTexto.value;
     jogador2;
-    if(jogador1 == "X" || jogador1 == "x"){
+    if (jogador1 == "X" || jogador1 == "x") {
         jogador2 = "O"
         caixaTexto.value = "";
         caixaTexto.placeholder = "JOGADOR JÁ ESCOLHIDO";
         caixaTexto.disabled = true;
     }
-    else if(jogador1 == "O" || jogador1 == "o"){
+    else if (jogador1 == "O" || jogador1 == "o") {
         jogador2 = "X"
         caixaTexto.value = "";
         caixaTexto.placeholder = "JOGADOR JÁ ESCOLHIDO";
         caixaTexto.disabled = true;
     }
-    else{
+    else {
         caixaTexto.value = "JOGADOR INVALIDO"
     }
-    
+
 }
 
 botao.onclick = escolherJogador;
 
-function gerarJogada(){
-    if(this.innerHTML == ""){
-        if(jogada % 2 == 0){
+function gerarJogada() {
+    if (this.innerHTML == "") {
+        if (jogada % 2 == 0) {
             this.innerHTML = jogador1;
             this.style.color = "red";
             jogada++;
             verificarFinal();
         }
-        else{
+        else {
             this.innerHTML = jogador2;
             jogada++;
             verificarFinal();
         }
     }
-    else{
-        this.innerHTML= this.innerHTML;
+    else {
+        this.innerHTML = this.innerHTML;
     }
 }
 
-for(let quadrado of quadrados){
+for (let quadrado of quadrados) {
     quadrado.onclick = gerarJogada;
 }
 
-function verificarFinal(){
-    for(let quadrado of quadrados){
-        if(quadrados[0] != "" && quadrados[0].innerHTML == quadrados[1].innerHTML && quadrados[1].innerHTML == quadrados[2].innerHTML){
-            aviso.innerHTML = "Você venceu";
+function verificarFinal() {
+    for (let quadrado of quadrados) {
+        //primeira linha
+        if (quadrado[0].innerHTML !== "" && quadrados[0].innerHTML === quadrados[1].innerHTML && quadrados[1].innerHTML === quadrados[2].innerHTML) {
+            aviso.innerHTML = "Você venceu!";
             quadrado.onclick = null;
         }
-        else if(quadrados[3] != "" && quadrados[3].innerHTML == quadrados[4].innerHTML && quadrados[5].innerHTML){
-            aviso.innerHTML = "Você venceu";
+        else if (quadrado[3].innerHTML !== "" && quadrados[3].innerHTML === quadrados[4].innerHTML && quadrados[4].innerHTML === quadrados[5].innerHTML) {
+            aviso.innerHTML = "Você venceu!";
             quadrado.onclick = null;
         }
-        else if(quadrados[6] != "" && quadrados[6].innerHTML == quadrados[7].innerHTML && quadrados[8].innerHTML){
-            aviso.innerHTML = "Você venceu";
+        else if (quadrado[6].innerHTML !== "" && quadrados[6].innerHTML === quadrados[7].innerHTML && quadrados[7].innerHTML === quadrados[8].innerHTML) {
+            aviso.innerHTML = "Você venceu!";
             quadrado.onclick = null;
         }
-        else if(quadrados[0] != "" && quadrados[0].innerHTML == quadrados[3].innerHTML && quadrados[6].innerHTML){
-            aviso.innerHTML = "Você venceu";
+        else if (quadrado[0].innerHTML !== "" && quadrados[0].innerHTML === quadrados[3].innerHTML && quadrados[3].innerHTML === quadrados[6].innerHTML) {
+            aviso.innerHTML = "Você venceu!";
             quadrado.onclick = null;
         }
-        else if(quadrados[1] != "" && quadrados[1].innerHTML == quadrados[4].innerHTML && quadrados[7].innerHTML){
-            aviso.innerHTML = "Você venceu";
+
+        else if (quadrado[1].innerHTML !== "" && quadrados[1].innerHTML === quadrados[4].innerHTML && quadrados[4].innerHTML === quadrados[7].innerHTML) {
+            aviso.innerHTML = "Você venceu!";
             quadrado.onclick = null;
         }
-        else if(quadrados[2] != "" && quadrados[2].innerHTML == quadrados[5].innerHTML && quadrados[8].innerHTML){
-            aviso.innerHTML = "Você venceu";
+        else if (quadrado[2].innerHTML !== "" && quadrados[2].innerHTML === quadrados[5].innerHTML && quadrados[5].innerHTML === quadrados[8].innerHTML) {
+            aviso.innerHTML = "Você venceu!";
             quadrado.onclick = null;
         }
-        else if(quadrados[0] != "" && quadrados[0].innerHTML == quadrados[4].innerHTML && quadrados[8].innerHTML){
-            aviso.innerHTML = "Você venceu";
+        else if (quadrado[0].innerHTML !== "" && quadrados[0].innerHTML === quadrados[4].innerHTML && quadrados[4].innerHTML === quadrados[8].innerHTML) {
+            aviso.innerHTML = "Você venceu!";
             quadrado.onclick = null;
         }
-        else if(quadrados[2] != "" && quadrados[2].innerHTML == quadrados[4].innerHTML && quadrados[6].innerHTML){
-            aviso.innerHTML = "Você venceu";
-            quadrado.onclick = null;
+        else if (quadrado[2].innerHTML !== "" && quadrados[2].innerHTML === quadrados[4].innerHTML && quadrados[4].innerHTML === quadrados[6].innerHTML) {
+            aviso.innerHTML = "Você venceu!";
         }
-        else{
-            console.log("IH!!!!!!!!!!!!!!!! Deu Velha");
+        else {
+            aviso.innerHTML = " Iiiii de velha"
         }
     }
 }

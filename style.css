@@ -6,6 +6,7 @@ body{
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    background-color: black;
 }
 div{
     display: flex;
@@ -29,4 +30,19 @@ section{
 .quadrado{
     font-size: 60pt;
 }
+.boxtext{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+button{
+  margin-top: 10px;
+}
+h2{
+    margin-top: 20px;
+    color: magenta;
+}
+
 
