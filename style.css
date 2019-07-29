@@ -42,6 +42,10 @@ section{
 button{
   margin-top: 10px;
   background-color: rgb(85, 5, 5);
+  color: mediumblue;
+  border: none;
+  width: 60px;
+  height: 20px;
   
 }
 h2{
