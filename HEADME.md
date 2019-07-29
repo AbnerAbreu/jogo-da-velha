@@ -20,7 +20,7 @@
 - YARA DE SOUSA
 
 
-**Ex.Curiosidades do Jogo** 
+### Curiosidades do Jogo
 
 - Dois jogadores escolhem uma marcação cada um, geralmente um círculo (O) e um xis (X).
 
